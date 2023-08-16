@@ -2,12 +2,15 @@ package com.d24hostels.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -19,4 +22,6 @@ public class Payment {
     private String payId;
     private Date paidDate;
     private double amount;
+    @ManyToOne
+    private Room room;
 }

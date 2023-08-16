@@ -2,10 +2,14 @@ package com.d24hostels.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,4 +22,8 @@ public class Room {
     private String roomType;
     private double keyMoney;
     private double bedCount;
+    @OneToMany(mappedBy = "room")
+    private List<Student> students;
+    @OneToMany(mappedBy = "room")
+    private List<Payment> payments;
 }
