@@ -20,6 +20,7 @@ public class Room {
     @Id
     private String roomNo;
     private String roomType;
+    private String roomTypeId;
     private double keyMoney;
     private double bedCount;
     @OneToMany(mappedBy = "room")
