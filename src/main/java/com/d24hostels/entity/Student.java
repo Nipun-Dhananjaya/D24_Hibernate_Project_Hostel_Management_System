@@ -28,4 +28,6 @@ public class Student {
     private boolean keyMoney;
     @ManyToOne
     private Room room;
+    @ManyToOne
+    private Payment payment;
 }
