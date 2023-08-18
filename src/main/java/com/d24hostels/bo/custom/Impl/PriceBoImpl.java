@@ -13,4 +13,14 @@ public class PriceBoImpl implements PriceBo {
     public void updatePrice(PriceDto priceDto) {
 
     }
+
+    @Override
+    public void getAllPrices() throws Exception {
+
+    }
+
+    @Override
+    public void searchPrice() throws Exception {
+
+    }
 }

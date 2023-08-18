@@ -29,4 +29,6 @@ public class Student {
     private Room room;
     @ManyToOne
     private Payment payment;
+    @ManyToOne
+    private University university;
 }

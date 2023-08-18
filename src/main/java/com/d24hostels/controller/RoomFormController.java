@@ -1,5 +1,7 @@
 package com.d24hostels.controller;
 
+import com.d24hostels.bo.BOFactory;
+import com.d24hostels.bo.custom.RoomBo;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
@@ -24,6 +26,7 @@ public class RoomFormController {
     public Button btnSave;
     public Button btnUpdate;
     public Button btnDelete;
+    RoomBo roomBo= (RoomBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ROOMS);
 
     public void rBtnAvailableOnAction(ActionEvent actionEvent) {
     }

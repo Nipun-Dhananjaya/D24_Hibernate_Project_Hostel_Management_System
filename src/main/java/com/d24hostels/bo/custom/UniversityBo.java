@@ -5,4 +5,5 @@ import com.d24hostels.dto.UniversityDto;
 
 public interface UniversityBo extends SuperBo {
     void saveUniversity(UniversityDto universityDto) throws Exception;
+    void getAllUniversities(UniversityDto universityDto) throws Exception;
 }

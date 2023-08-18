@@ -8,4 +8,9 @@ public class UniversityBoImpl implements UniversityBo {
     public void saveUniversity(UniversityDto universityDto) throws Exception {
 
     }
+
+    @Override
+    public void getAllUniversities(UniversityDto universityDto) throws Exception {
+
+    }
 }
