@@ -12,4 +12,8 @@ public class HomeFormController {
     public Label lblEmptyNoneAcFoodCount;
     public Label lblEmptyAcCount;
     public Label lblEmptyAcFoodCount;
+    public Label lblAcCount;
+    public Label lblAcFoodCount;
+    public Label lblNoneAcFoodCount;
+    public Label lblNoneAcCount;
 }

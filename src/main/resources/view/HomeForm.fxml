@@ -41,7 +41,7 @@
             <Font name="System Bold" size="35.0" />
          </font>
       </Label>
-      <Label layoutX="618.0" layoutY="389.0" text="3100" textFill="#efe66b">
+      <Label fx:id="lblNoneAcCount" layoutX="618.0" layoutY="389.0" text="3100" textFill="#efe66b">
          <font>
             <Font name="Arial Narrow Bold" size="38.0" />
          </font>
@@ -51,7 +51,7 @@
             <Font name="System Bold" size="35.0" />
          </font>
       </Label>
-      <Label layoutX="618.0" layoutY="456.0" text="6500" textFill="#efe66b">
+      <Label fx:id="lblNoneAcFoodCount" layoutX="618.0" layoutY="456.0" text="6500" textFill="#efe66b">
          <font>
             <Font name="Arial Narrow Bold" size="38.0" />
          </font>
@@ -61,7 +61,7 @@
             <Font name="System Bold" size="35.0" />
          </font>
       </Label>
-      <Label layoutX="618.0" layoutY="527.0" text="8900" textFill="#efe66b">
+      <Label fx:id="lblAcCount" layoutX="618.0" layoutY="527.0" text="8900" textFill="#efe66b">
          <font>
             <Font name="Arial Narrow Bold" size="38.0" />
          </font>
@@ -71,7 +71,7 @@
             <Font name="System Bold" size="35.0" />
          </font>
       </Label>
-      <Label layoutX="618.0" layoutY="598.0" text="16000" textFill="#efe66b">
+      <Label fx:id="lblAcFoodCount" layoutX="618.0" layoutY="598.0" text="16000" textFill="#efe66b">
          <font>
             <Font name="Arial Narrow Bold" size="38.0" />
          </font>

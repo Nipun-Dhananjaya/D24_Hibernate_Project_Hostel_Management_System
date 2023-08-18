@@ -20,6 +20,7 @@ public class DashboardFormController implements Initializable {
     public JFXButton btnStudent;
     public JFXButton btnRooms;
     public JFXButton btnPayments;
+    public JFXButton btnAccessories;
 
     @SneakyThrows
     @Override
@@ -50,5 +51,11 @@ public class DashboardFormController implements Initializable {
         lblTitle.setText("Payments");
         context.getChildren().clear();
         context.getChildren().add(FXMLLoader.load(getClass().getResource("/view/PaymentForm.fxml")));
+    }
+
+    public void btnAccessoriesOnAction(ActionEvent actionEvent) throws IOException {
+        lblTitle.setText("Accessories");
+        context.getChildren().clear();
+        context.getChildren().add(FXMLLoader.load(getClass().getResource("/view/AccessoriesForm.fxml")));
     }
 }
