@@ -12,18 +12,18 @@ public class StudentDaoImpl implements StudentDao {
     }
 
     @Override
-    public boolean save(Student entity) throws Exception {
-        return false;
+    public void save(Student entity) throws Exception {
+
     }
 
     @Override
-    public boolean update(Student entity) throws Exception {
-        return false;
+    public void update(Student entity) throws Exception {
+
     }
 
     @Override
-    public boolean delete(String s) throws Exception {
-        return false;
+    public void delete(String s) throws Exception {
+
     }
 
     @Override

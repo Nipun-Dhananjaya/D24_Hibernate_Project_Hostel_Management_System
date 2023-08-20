@@ -21,4 +21,8 @@ public class University {
     private String uniName;
     @OneToMany(mappedBy = "university")
     private List<Student> students;
+
+    public University(String uniName) {
+        this.uniName=uniName;
+    }
 }

@@ -12,18 +12,18 @@ public class RoomDaoImpl implements RoomDao {
     }
 
     @Override
-    public boolean save(Room entity) throws Exception {
-        return false;
+    public void save(Room entity) throws Exception {
+
     }
 
     @Override
-    public boolean update(Room entity) throws Exception {
-        return false;
+    public void update(Room entity) throws Exception {
+
     }
 
     @Override
-    public boolean delete(String s) throws Exception {
-        return false;
+    public void delete(String s) throws Exception {
+
     }
 
     @Override

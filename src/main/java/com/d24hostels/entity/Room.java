@@ -26,4 +26,9 @@ public class Room {
     private List<Payment> payments;
     @ManyToOne
     private Price price;
+
+    public Room(String roomNo, double bedCount) {
+        this.roomNo = roomNo;
+        this.bedCount = bedCount;
+    }
 }

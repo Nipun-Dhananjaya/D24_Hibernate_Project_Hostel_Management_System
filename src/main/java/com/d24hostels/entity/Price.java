@@ -22,4 +22,10 @@ public class Price {
     private double keyMoney;
     @OneToMany(mappedBy = "price")
     private List<Room> rooms;
+
+    public Price(String typeId, String roomType, double keyMoney) {
+        TypeId = typeId;
+        this.roomType = roomType;
+        this.keyMoney = keyMoney;
+    }
 }

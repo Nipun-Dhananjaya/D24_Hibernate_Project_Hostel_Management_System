@@ -10,12 +10,12 @@
 
 <AnchorPane fx:id="context" prefHeight="710.0" prefWidth="1298.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.d24hostels.controller.AccessoriesFormController">
    <children>
-      <JFXTextField fx:id="txtRoomType" disable="true" focusColor="#efdea5" labelFloat="true" layoutX="244.0" layoutY="277.0" prefHeight="43.0" prefWidth="263.0" promptText="Room Type" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtPackage" focusColor="#efdea5" labelFloat="true" layoutX="244.0" layoutY="233.0" prefHeight="43.0" prefWidth="263.0" promptText="Package" unFocusColor="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="19.0" />
          </font>
       </JFXTextField>
-      <JFXComboBox fx:id="cmbPackage" focusColor="#efdea5" labelFloat="true" layoutX="244.0" layoutY="161.0" onAction="#cmbPackageOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Package" unFocusColor="WHITE" />
+      <JFXComboBox fx:id="cmbId" focusColor="#efdea5" labelFloat="true" layoutX="244.0" layoutY="161.0" onAction="#cmbIdOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Room Type ID" unFocusColor="WHITE" />
       <Button fx:id="btnSavePrice" layoutX="291.0" layoutY="520.0" mnemonicParsing="false" onAction="#btnSavePriceOnAction" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #4b7bec;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -48,6 +48,11 @@
          </font>
       </Label>
       <JFXTextField fx:id="txtUniversity" focusColor="#efdea5" labelFloat="true" layoutX="832.0" layoutY="255.0" prefHeight="43.0" prefWidth="263.0" promptText="University" unFocusColor="WHITE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="19.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtRoomType" focusColor="#efdea5" labelFloat="true" layoutX="244.0" layoutY="312.0" prefHeight="43.0" prefWidth="263.0" promptText="Room Type" unFocusColor="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="19.0" />
          </font>
