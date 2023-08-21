@@ -1,6 +1,8 @@
 package com.d24hostels.dto;
 
 
+import com.d24hostels.entity.Reservation;
+import jakarta.persistence.ManyToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,10 +17,9 @@ import java.util.Date;
 public class StudentDto{
     private String sid;
     private String name;
-    private String nic;
+    private String address;
+    private String contact;
+    private Date dob;
     private String gender;
-    private String guardian;
-    private String campus;
-    private Date regDate;
-    private boolean keyMoney;
+    private Reservation reservation;
 }

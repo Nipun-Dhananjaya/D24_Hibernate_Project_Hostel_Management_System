@@ -19,16 +19,10 @@ public class Student {
     @Id
     private String sid;
     private String name;
-    private String nic;
+    private String address;
+    private String contact;
+    private Date dob;
     private String gender;
-    private String guardian;
-    private String campus;
-    private Date regDate;
-    private boolean keyMoney;
     @ManyToOne
-    private Room room;
-    @ManyToOne
-    private Payment payment;
-    @ManyToOne
-    private University university;
+    private Reservation reservation;
 }

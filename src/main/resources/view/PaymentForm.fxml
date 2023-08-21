@@ -1,25 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXRadioButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="710.0" prefWidth="1298.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.d24hostels.controller.PaymentFormController">
    <children>
       <JFXComboBox fx:id="cmbSId" focusColor="#efdea5" labelFloat="true" layoutX="14.0" layoutY="26.0" onAction="#cmbRoomTypeOnAction" prefHeight="43.0" prefWidth="171.0" promptText="Search Student" unFocusColor="WHITE" />
       <TableView fx:id="tblPayment" layoutX="14.0" layoutY="81.0" prefHeight="618.0" prefWidth="1270.0">
         <columns>
-          <TableColumn fx:id="colPayId" prefWidth="111.19997882843018" text="Payment ID" />
+          <TableColumn fx:id="colResId" prefWidth="111.19997882843018" text="Reservation ID" />
           <TableColumn fx:id="colStudentId" prefWidth="131.1999969482422" text="Student ID" />
             <TableColumn fx:id="colStudentName" prefWidth="233.60003662109375" text="Student Name" />
-            <TableColumn fx:id="colPaidDateTime" prefWidth="164.79998779296875" text="Paid Date &amp; Time" />
+            <TableColumn fx:id="colDate" prefWidth="164.79998779296875" text="Date" />
             <TableColumn fx:id="colPaidAmount" prefWidth="164.79998779296875" text="Paid Amount" />
-            <TableColumn fx:id="colRoomNo" prefWidth="132.00006103515625" text="Room No" />
+            <TableColumn fx:id="colRoomTypeId" prefWidth="132.00006103515625" text="Room Type ID" />
             <TableColumn fx:id="colRoomType" prefWidth="164.79998779296875" text="Room Type" />
-            <TableColumn fx:id="colCompleted" prefWidth="164.79998779296875" text="Keymoney Completed" />
+            <TableColumn fx:id="colStatus" prefWidth="164.79998779296875" text="Status" />
         </columns>
       </TableView>
+      <JFXRadioButton fx:id="rBtnAll" layoutX="874.0" layoutY="41.0" onAction="#rBtnAllOnAction" selected="true" text="All" textFill="WHITE">
+         <selectedColor>
+            <Color red="0.15784136950969696" green="0.061000000685453415" blue="0.6100000143051147" />
+         </selectedColor>
+         <unSelectedColor>
+            <Color red="1.0" green="1.0" blue="1.0" />
+         </unSelectedColor>
+         <font>
+            <Font name="Arial Unicode MS" size="24.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="rBtnPaid" layoutX="991.0" layoutY="41.0" onAction="#rBtnPaidOnAction" selected="true" text="Paid" textFill="WHITE">
+         <selectedColor>
+            <Color red="0.15784136950969696" green="0.061000000685453415" blue="0.6100000143051147" />
+         </selectedColor>
+         <unSelectedColor>
+            <Color red="1.0" green="1.0" blue="1.0" />
+         </unSelectedColor>
+         <font>
+            <Font name="Arial Unicode MS" size="24.0" />
+         </font>
+      </JFXRadioButton>
+      <JFXRadioButton fx:id="rBtnRemaining" layoutX="1122.0" layoutY="41.0" onAction="#rBtnRemainingOnAction" selected="true" text="Remaining" textFill="WHITE">
+         <selectedColor>
+            <Color red="0.15784136950969696" green="0.061000000685453415" blue="0.6100000143051147" />
+         </selectedColor>
+         <unSelectedColor>
+            <Color red="1.0" green="1.0" blue="1.0" />
+         </unSelectedColor>
+         <font>
+            <Font name="Arial Unicode MS" size="24.0" />
+         </font>
+      </JFXRadioButton>
    </children>
 </AnchorPane>

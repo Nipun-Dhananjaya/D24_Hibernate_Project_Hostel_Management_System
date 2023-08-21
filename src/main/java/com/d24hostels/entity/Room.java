@@ -18,17 +18,10 @@ import java.util.List;
 @Entity
 public class Room {
     @Id
-    private String roomNo;
-    private double bedCount;
-    @OneToMany(mappedBy = "room")
-    private List<Student> students;
-    @OneToMany(mappedBy = "room")
-    private List<Payment> payments;
+    private String room_type_Id;
+    private String type;
+    private double key_money;
+    private int qty;
     @ManyToOne
-    private Price price;
-
-    public Room(String roomNo, double bedCount) {
-        this.roomNo = roomNo;
-        this.bedCount = bedCount;
-    }
+    private Reservation reservation;
 }

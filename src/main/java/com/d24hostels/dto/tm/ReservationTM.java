@@ -9,13 +9,13 @@ import lombok.Setter;
 @NoArgsConstructor
 @Setter
 @Getter
-public class PaymentTM {
-    private String payId;
+public class ReservationTM {
+    private String resId;
     private String stId;
     private String stName;
-    private String payDateTime;
+    private String resDate;
     private String payAmount;
-    private String roomNo;
+    private String roomTypeId;
     private String roomType;
-    private String keyMoneyCompleted;
+    private String status;
 }

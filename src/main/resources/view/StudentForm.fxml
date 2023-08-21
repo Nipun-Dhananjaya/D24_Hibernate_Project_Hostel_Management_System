@@ -14,62 +14,55 @@
 
 <AnchorPane fx:id="context" prefHeight="710.0" prefWidth="1298.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.d24hostels.controller.StudentFormController">
    <children>
-      <JFXTextField fx:id="txtSid" focusColor="#efdea5" labelFloat="true" layoutX="49.0" layoutY="52.0" onAction="#txtSidOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Student ID" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtSid" focusColor="#efdea5" labelFloat="true" layoutX="125.0" layoutY="55.0" onAction="#txtSidOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Student ID" unFocusColor="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="19.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtSName" focusColor="#efdea5" labelFloat="true" layoutX="49.0" layoutY="135.0" onAction="#txtSNameOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Student Name" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtSName" focusColor="#efdea5" labelFloat="true" layoutX="125.0" layoutY="138.0" onAction="#txtSNameOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Student Name" unFocusColor="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="19.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtSNic" focusColor="#efdea5" labelFloat="true" layoutX="49.0" layoutY="228.0" onAction="#txtSNicOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Student NIC" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtAddress" focusColor="#efdea5" labelFloat="true" layoutX="125.0" layoutY="231.0" onAction="#txtAddressOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Address" unFocusColor="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="19.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtGuardianName" focusColor="#efdea5" labelFloat="true" layoutX="366.0" layoutY="52.0" onAction="#txtGuardianNameOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Guardian Name" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtContact" focusColor="#efdea5" labelFloat="true" layoutX="517.0" layoutY="56.0" onAction="#txtCantactOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Contact Number" unFocusColor="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="19.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtContact" focusColor="#efdea5" labelFloat="true" layoutX="366.0" layoutY="135.0" onAction="#txtCantactOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Contact Number" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtEmail" focusColor="#efdea5" labelFloat="true" layoutX="517.0" layoutY="139.0" onAction="#txtEmailOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Email" unFocusColor="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="19.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txtEmail" focusColor="#efdea5" labelFloat="true" layoutX="366.0" layoutY="228.0" onAction="#txtEmailOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Email" unFocusColor="WHITE">
-         <font>
-            <Font name="Bookshelf Symbol 7" size="19.0" />
-         </font>
-      </JFXTextField>
-      <JFXComboBox fx:id="cmbUniversity" focusColor="#efdea5" labelFloat="true" layoutX="692.0" layoutY="135.0" onAction="#cmbUniversityOnAction" prefHeight="43.0" prefWidth="263.0" promptText="University" unFocusColor="WHITE" />
-      <JFXComboBox fx:id="cmbRoomType" focusColor="#efdea5" labelFloat="true" layoutX="692.0" layoutY="228.0" onAction="#cmbRoomTypeOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Room Type" unFocusColor="WHITE" />
-      <JFXComboBox fx:id="cmbSelectedRoom" focusColor="#efdea5" labelFloat="true" layoutX="1000.0" layoutY="52.0" onAction="#cmbSelectedRoomOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Selected Room" unFocusColor="WHITE" />
-      <JFXRadioButton fx:id="rBtnPaid" layoutX="1106.0" layoutY="148.0" selected="true" text="Paid">
+      <JFXComboBox fx:id="cmbRoomType" focusColor="#efdea5" labelFloat="true" layoutX="912.0" layoutY="52.0" onAction="#cmbRoomTypeOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Room Type" unFocusColor="WHITE" />
+      <JFXRadioButton fx:id="rBtnPaid" layoutX="1009.0" layoutY="251.0" selected="true" text="Paid">
          <toggleGroup>
             <ToggleGroup fx:id="keymoney" />
          </toggleGroup>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="rBtnNotPaid" layoutX="1175.0" layoutY="148.0" text="Not Paid" toggleGroup="$keymoney" />
-      <Label layoutX="1007.0" layoutY="146.0" text="Keymoney :">
+      <JFXRadioButton fx:id="rBtnNotPaid" layoutX="1078.0" layoutY="251.0" text="Not Paid" toggleGroup="$keymoney" />
+      <Label layoutX="910.0" layoutY="249.0" text="Keymoney :">
          <font>
             <Font name="Bookshelf Symbol 7" size="19.0" />
          </font>
       </Label>
-      <JFXTextField fx:id="txtAmount" disable="true" focusColor="#efdea5" labelFloat="true" layoutX="1000.0" layoutY="228.0" onAction="#txtAmountOnAction" prefHeight="43.0" prefWidth="126.0" promptText="Paid Amount" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtAmount" disable="true" focusColor="#efdea5" labelFloat="true" layoutX="912.0" layoutY="135.0" onAction="#txtAmountOnAction" prefHeight="43.0" prefWidth="126.0" promptText="Paid Amount" unFocusColor="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="19.0" />
          </font>
       </JFXTextField>
-      <JFXRadioButton fx:id="rBtnMale" layoutX="795.0" layoutY="86.0" selected="true" text="Male">
+      <JFXRadioButton fx:id="rBtnMale" layoutX="616.0" layoutY="255.0" selected="true" text="Male">
          <toggleGroup>
             <ToggleGroup fx:id="gender" />
          </toggleGroup>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="rBtnFeMale" layoutX="864.0" layoutY="86.0" text="Female" toggleGroup="$gender" />
-      <Label layoutX="696.0" layoutY="84.0" text="Gender :">
+      <JFXRadioButton fx:id="rBtnFeMale" layoutX="685.0" layoutY="255.0" text="Female" toggleGroup="$gender" />
+      <Label layoutX="517.0" layoutY="253.0" text="Gender :">
          <font>
             <Font name="Bookshelf Symbol 7" size="19.0" />
          </font>
@@ -78,15 +71,13 @@
         <columns>
           <TableColumn fx:id="colSid" prefWidth="75.0" text="Student ID" />
           <TableColumn fx:id="colSName" prefWidth="163.19996643066406" text="Student Name" />
-            <TableColumn fx:id="colNic" prefWidth="127.19998168945312" text="NIC" />
+            <TableColumn fx:id="colAddress" prefWidth="127.19998168945312" text="Address" />
             <TableColumn fx:id="colContact" prefWidth="127.19998168945312" text="Contact" />
-            <TableColumn fx:id="colEmail" prefWidth="177.5999755859375" text="Email" />
-            <TableColumn fx:id="colGender" prefWidth="52.0" text="Gender" />
-            <TableColumn fx:id="colUniversity" prefWidth="177.5999755859375" text="University" />
-            <TableColumn fx:id="colRoomType" prefWidth="78.39996337890625" text="Room Type" />
-            <TableColumn fx:id="colRoomNo" prefWidth="71.19989013671875" text="Room No:" />
-            <TableColumn fx:id="colKeyMoney" prefWidth="73.5999755859375" text="Key Money" />
-            <TableColumn fx:id="colAmount" prefWidth="86.4000244140625" text="Amount" />
+            <TableColumn fx:id="colEmail" prefWidth="207.2000732421875" text="Email" />
+            <TableColumn fx:id="colGender" prefWidth="79.199951171875" text="Gender" />
+            <TableColumn fx:id="colRoomType" prefWidth="164.0" text="Room Type" />
+            <TableColumn fx:id="colKeyMoney" prefWidth="126.39996337890625" text="Key Money" />
+            <TableColumn fx:id="colAmount" prefWidth="142.39990234375" text="Amount" />
         </columns>
       </TableView>
       <Button fx:id="btnSave" layoutX="1007.0" layoutY="288.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #4b7bec;" text="Save" textFill="WHITE">
@@ -104,6 +95,6 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <JFXCheckBox fx:id="chckBxComplete" layoutX="1136.0" layoutY="240.0" text="Payment Complete" />
+      <JFXCheckBox fx:id="chckBxComplete" layoutX="1048.0" layoutY="147.0" text="Payment Complete" />
    </children>
 </AnchorPane>

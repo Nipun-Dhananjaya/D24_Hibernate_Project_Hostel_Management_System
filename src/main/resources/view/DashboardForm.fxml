@@ -79,7 +79,7 @@
             </ImageView>
          </graphic>
       </JFXButton>
-      <JFXButton fx:id="btnAccessories" buttonType="RAISED" layoutX="7.0" layoutY="632.0" onAction="#btnAccessoriesOnAction" prefHeight="142.0" prefWidth="182.0" style="-fx-background-color: #313337;" text="Accessories" textFill="#cce703">
+      <JFXButton fx:id="btnAccount" buttonType="RAISED" layoutX="7.0" layoutY="632.0" onAction="#btnAccountOnAction" prefHeight="142.0" prefWidth="182.0" style="-fx-background-color: #313337;" text="Account" textFill="#cce703">
          <font>
             <Font size="20.0" />
          </font>

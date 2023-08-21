@@ -5,10 +5,14 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Date;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class UniversityDto {
-    private String uniName;
+public class ReservationDto {
+    private String payId;
+    private Date paidDate;
+    private double amount;
 }

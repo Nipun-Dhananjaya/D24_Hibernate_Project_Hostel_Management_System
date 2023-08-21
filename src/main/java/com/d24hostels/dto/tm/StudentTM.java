@@ -12,13 +12,11 @@ import lombok.Setter;
 public class StudentTM {
     private String sId;
     private String sName;
-    private String sNic;
+    private String address;
     private String contact;
     private String email;
     private String gender;
-    private String university;
     private String roomType;
-    private String roomNo;
     private String keyMoney;
     private String amount;
 }

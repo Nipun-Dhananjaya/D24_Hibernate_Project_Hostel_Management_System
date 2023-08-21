@@ -1,16 +1,16 @@
 package com.d24hostels.bo.custom.Impl;
 
 import com.d24hostels.bo.custom.PaymentBo;
-import com.d24hostels.dto.PaymentDto;
+import com.d24hostels.dto.ReservationDto;
 
 public class PaymentBoImpl implements PaymentBo {
     @Override
-    public void savePayment(PaymentDto paymentDto) throws Exception {
+    public void savePayment(ReservationDto reservationDto) throws Exception {
 
     }
 
     @Override
-    public void updatePayment(PaymentDto paymentDto) throws Exception {
+    public void updatePayment(ReservationDto reservationDto) throws Exception {
 
     }
 
