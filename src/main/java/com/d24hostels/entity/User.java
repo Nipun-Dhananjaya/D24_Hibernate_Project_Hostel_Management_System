@@ -1,6 +1,5 @@
 package com.d24hostels.entity;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
@@ -16,6 +15,5 @@ import lombok.Setter;
 public class User {
     @Id
     private String username;
-    @Column(nullable = false,unique = true)
     private String password;
 }

@@ -5,13 +5,9 @@ import com.d24hostels.bo.custom.RoomBo;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-public class RoomFormController implements Initializable {
+public class RoomFormController {
     public RadioButton rBtnAvailable;
     public ToggleGroup rooms;
     public RadioButton rBtnNotAvailable;
@@ -31,11 +27,6 @@ public class RoomFormController implements Initializable {
     public Button btnUpdate;
     public Button btnDelete;
     RoomBo roomBo= (RoomBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ROOMS);
-
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-
-    }
 
     public void rBtnAvailableOnAction(ActionEvent actionEvent) {
     }

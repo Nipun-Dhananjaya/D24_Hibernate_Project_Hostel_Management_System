@@ -10,10 +10,10 @@ import lombok.Setter;
 @Setter
 @Getter
 public class RoomTM {
+    private String roomNo;
     private String TypeID;
     private String roomType;
     private String keyMoney;
-    private String qty;
-    private String filled;
-    private String available;
+    private String bedCount;
+    private String availability;
 }

@@ -20,6 +20,7 @@ public class DashboardFormController implements Initializable {
     public JFXButton btnStudent;
     public JFXButton btnRooms;
     public JFXButton btnPayments;
+    public JFXButton btnAccessories;
     public JFXButton btnAccount;
 
     @SneakyThrows
@@ -54,6 +55,9 @@ public class DashboardFormController implements Initializable {
     }
 
     public void btnAccessoriesOnAction(ActionEvent actionEvent) throws IOException {
+        lblTitle.setText("Accessories");
+        context.getChildren().clear();
+        context.getChildren().add(FXMLLoader.load(getClass().getResource("/view/AccessoriesForm.fxml")));
     }
 
     public void btnAccountOnAction(ActionEvent actionEvent) throws IOException {

@@ -10,7 +10,7 @@ public class DAOFactory {
         return (daoFactory==null)?daoFactory=new DAOFactory():daoFactory;
     }
     public enum DAOTypes{
-        STUDENT,ROOMS,PAYMENTS,USER
+        STUDENT,ROOMS,PAYMENTS,USER,PRICE,UNIVERSITY
     }
     public static SuperDAO getDAO(DAOTypes daoTypes){
         switch (daoTypes){
@@ -18,6 +18,8 @@ public class DAOFactory {
             case ROOMS:return new RoomDaoImpl();
             case PAYMENTS:return new PaymentDaoImpl();
             case USER:return new UserDaoImpl();
+            case PRICE:return new PriceDaoImpl();
+            case UNIVERSITY:return new UniversityDaoImpl();
             default: return null;
         }
     }
