@@ -21,8 +21,6 @@ public class Room {
     private String roomNo;
     private double bedCount;
     @OneToMany(mappedBy = "room")
-    private List<Student> students;
-    @OneToMany(mappedBy = "room")
     private List<Payment> payments;
     @ManyToOne
     private Price price;

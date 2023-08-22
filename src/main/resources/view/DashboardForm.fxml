@@ -89,5 +89,15 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
+      <Label fx:id="lblDate" layoutX="1320.0" layoutY="18.0" text="2023-08-20" textFill="#e7ff0c">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTime" layoutX="1432.0" layoutY="18.0" text="07:37:00" textFill="#e7ff0c">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
