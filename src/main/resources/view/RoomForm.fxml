@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="710.0" prefWidth="1298.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.d24hostels.controller.RoomFormController">
    <children>
       <RadioButton fx:id="rBtnAvailable" layoutX="30.0" layoutY="101.0" mnemonicParsing="false" onAction="#rBtnAvailableOnAction" selected="true" text="Available" textFill="#eaea6b">
@@ -34,25 +33,23 @@
       <TableView fx:id="tblRoom" layoutX="14.0" layoutY="147.0" prefHeight="554.0" prefWidth="1271.0">
         <columns>
           <TableColumn fx:id="colRoomNo" prefWidth="169.59997272491455" text="Room No" />
-            <TableColumn fx:id="colRoomId" prefWidth="179.20005798339844" text="Type ID" />
-          <TableColumn fx:id="colRoomType" prefWidth="301.60003662109375" text="Room Type" />
-            <TableColumn fx:id="colKeyMoney" prefWidth="200.0" text="Key Money" />
-            <TableColumn fx:id="colBedCount" prefWidth="224.7999267578125" text="Bed Count" />
-            <TableColumn fx:id="colAvailability" prefWidth="189.60009765625" text="Availabilty" />
+            <TableColumn fx:id="colRoomId" prefWidth="261.5999755859375" text="Type ID" />
+          <TableColumn fx:id="colRoomType" prefWidth="370.4000549316406" text="Room Type" />
+            <TableColumn fx:id="colKeyMoney" prefWidth="254.39990234375" text="Key Money" />
+            <TableColumn fx:id="colAvailability" prefWidth="210.39990234375" text="Availabilty" />
         </columns>
       </TableView>
-      <JFXTextField fx:id="txtRoomNo" focusColor="#efdea5" labelFloat="true" layoutX="30.0" layoutY="36.0" onAction="#txtRoomNoOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Room No:" unFocusColor="WHITE">
+      <JFXTextField fx:id="txtRoomNo" focusColor="#efdea5" labelFloat="true" layoutX="30.0" layoutY="37.0" onAction="#txtRoomNoOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Room No:" unFocusColor="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="19.0" />
          </font>
       </JFXTextField>
-      <JFXComboBox fx:id="cmbRoomType" focusColor="#efdea5" labelFloat="true" layoutX="355.0" layoutY="36.0" onAction="#cmbRoomTypeOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Room Type" unFocusColor="WHITE" />
-      <JFXTextField fx:id="txtKeyMoney" focusColor="#efdea5" labelFloat="true" layoutX="673.0" layoutY="36.0" onAction="#txtKeyMoneyOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Key Money" unFocusColor="WHITE">
+      <JFXComboBox fx:id="cmbRoomTypeId" focusColor="#efdea5" labelFloat="true" layoutX="355.0" layoutY="37.0" onAction="#cmbRoomTypeIdOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Room Type ID" unFocusColor="WHITE" />
+      <JFXTextField fx:id="txtKeyMoney" focusColor="#ffc300" labelFloat="true" layoutX="990.0" layoutY="37.0" onAction="#txtKeyMoneyOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Key Money" unFocusColor="WHITE">
          <font>
             <Font name="Bookshelf Symbol 7" size="19.0" />
          </font>
       </JFXTextField>
-      <JFXComboBox fx:id="cmbBedCount" focusColor="#efdea5" labelFloat="true" layoutX="991.0" layoutY="36.0" onAction="#cmbBedCountOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Bed Count" unFocusColor="WHITE" />
       <Button fx:id="btnSave" layoutX="997.0" layoutY="104.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #4b7bec;" text="Save" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -68,5 +65,10 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
+      <JFXTextField fx:id="txtRoomType" focusColor="#ffc300" labelFloat="true" layoutX="673.0" layoutY="37.0" onAction="#txtRoomTypeOnAction" prefHeight="43.0" prefWidth="263.0" promptText="Room Type" unFocusColor="WHITE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="19.0" />
+         </font>
+      </JFXTextField>
    </children>
 </AnchorPane>

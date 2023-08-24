@@ -14,6 +14,5 @@ public class RoomTM {
     private String TypeID;
     private String roomType;
     private String keyMoney;
-    private String bedCount;
     private String availability;
 }

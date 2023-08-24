@@ -17,13 +17,27 @@ import java.util.List;
 @Setter
 public class RoomDto {
     private String roomNo;
-    private double bedCount;
+    private String availability;
     private List<StudentDto> studentDtos;
     private List<PaymentDto> paymentDtos;
     private PriceDto priceDto;
 
-    public RoomDto(String roomNo, double bedCount) {
+    public RoomDto(String roomNo,PriceDto priceDto,String availability) {
         this.roomNo = roomNo;
-        this.bedCount = bedCount;
+        this.priceDto= priceDto;
+        this.availability= availability;
+    }
+    public RoomDto(String roomNo,PriceDto priceDto) {
+        this.roomNo = roomNo;
+        this.priceDto= priceDto;
+    }
+
+    public RoomDto(String roomNo, String availability) {
+        this.roomNo = roomNo;
+        this.availability = availability;
+    }
+
+    public RoomDto(String roomNo) {
+        this.roomNo = roomNo;
     }
 }

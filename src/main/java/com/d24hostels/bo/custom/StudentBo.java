@@ -8,5 +8,5 @@ public interface StudentBo extends SuperBo {
     void updateStudent(StudentDto studentDto) throws Exception;
     void deleteStudent(String stId) throws Exception;
     void getAllStudents() throws Exception;
-    void searchStudents(String stId) throws Exception;
+    StudentDto searchStudents(String stId) throws Exception;
 }
