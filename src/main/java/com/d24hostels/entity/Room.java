@@ -17,9 +17,7 @@ public class Room {
     @Id
     private String roomNo;
     private String availability;
-    @OneToMany(mappedBy = "room", cascade = CascadeType.ALL)
-    private List<Payment> payments;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.MERGE)
     private Price price;
 
     public Room(String roomNo,Price price,String availability) {

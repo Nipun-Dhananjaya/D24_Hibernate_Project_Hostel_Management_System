@@ -1,6 +1,8 @@
 package com.d24hostels.controller;
 
 import com.d24hostels.bo.BOFactory;
+import com.d24hostels.bo.custom.UserBo;
+import com.d24hostels.dto.UserDto;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXPasswordField;
@@ -31,29 +33,26 @@ public class AccountFormController implements Initializable {
     public JFXPasswordField pwdFldComPwd;
     public JFXTextField txtNewUserName;
     public JFXCheckBox checkBxShowPwd;
+    UserBo userBo= (UserBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        /*ObservableList<String> observableList= FXCollections.observableArrayList();
-        List<String> strings=new ArrayList<>();
-        List<PriceDto> priceDtos=new ArrayList<>();
 
+    }
+
+    public void btnSaveOnAction(ActionEvent actionEvent) {
         try {
-            priceDtos=priceBo.getAllPrices();
-            for (PriceDto priceDto : priceDtos) {
-                strings.add(String.valueOf(priceDto.getTypeId()));
+            UserDto userDto = userBo.searchUser(txtUserName.getText());
+            if (userDto.getPassword().equals(txtPassword)){
+                new Alert(Alert.AlertType.INFORMATION, "Login Successfully!").showAndWait();
+                resetPage();
+            }else{
+                new Alert(Alert.AlertType.INFORMATION, "Password is incorrect!").showAndWait();
             }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
             e.printStackTrace();
         }
-        for (String s:strings) {
-            observableList.add(s);
-        }
-        cmbId.setItems(observableList);*/
-    }
-
-    public void btnSaveOnAction(ActionEvent actionEvent) {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {

@@ -17,8 +17,4 @@ public class StudentTM {
     private String email;
     private String gender;
     private String university;
-    private String roomType;
-    private String roomNo;
-    private String keyMoney;
-    private String amount;
 }

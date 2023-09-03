@@ -15,4 +15,6 @@ public interface RoomBo extends SuperBo {
     List<RoomDto> getAvailableRooms() throws Exception;
     List<RoomDto> getFilledRooms() throws Exception;
     RoomDto searchRoom(String roomNo) throws Exception;
+
+    int getCount(String status) throws Exception;
 }

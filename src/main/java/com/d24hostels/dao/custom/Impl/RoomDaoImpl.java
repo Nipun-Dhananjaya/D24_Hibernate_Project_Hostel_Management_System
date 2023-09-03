@@ -92,11 +92,6 @@ public class RoomDaoImpl implements RoomDao {
         Session session= FactoryConfiguration.getInstance().getSession();
         Transaction transaction=session.beginTransaction();
 
-        /*NativeQuery nativeQuery = session.createNativeQuery("SELECT r.roomNo,p.TypeId,p.roomType,p.keyMoney,r.availability FROM room r INNER JOIN price p ON r.price_TypeId=p.TypeId WHERE r.availability=:paramValue");
-        nativeQuery.setParameter("paramValue", "Available");
-        nativeQuery.addEntity(Room.class);
-        nativeQuery.addEntity(Price.class);
-        List<Room> list = nativeQuery.list();*/
         Query query = session.createQuery("SELECT r.roomNo,p.TypeId,p.roomType,p.keyMoney,r.availability FROM Room r INNER JOIN Price p ON r.price.TypeId=p.TypeId WHERE r.availability=:paramValue");
         query.setParameter("paramValue", "Available");
         List<Object[]> list = query.list();

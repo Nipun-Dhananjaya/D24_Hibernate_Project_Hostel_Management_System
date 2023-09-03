@@ -1,9 +1,5 @@
 package com.d24hostels.dto;
 
-
-import com.d24hostels.entity.Payment;
-import com.d24hostels.entity.Price;
-import com.d24hostels.entity.Student;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,8 +14,6 @@ import java.util.List;
 public class RoomDto {
     private String roomNo;
     private String availability;
-    private List<StudentDto> studentDtos;
-    private List<PaymentDto> paymentDtos;
     private PriceDto priceDto;
 
     public RoomDto(String roomNo,PriceDto priceDto,String availability) {

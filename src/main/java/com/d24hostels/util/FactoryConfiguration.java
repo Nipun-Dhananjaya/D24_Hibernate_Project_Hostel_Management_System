@@ -23,7 +23,7 @@ public class FactoryConfiguration {
             e.printStackTrace();
         }
 
-        sessionFactory=new Configuration().addAnnotatedClass(Student.class).addAnnotatedClass(Room.class).addAnnotatedClass(Payment.class).addAnnotatedClass(User.class).addAnnotatedClass(Price.class).addAnnotatedClass(University.class).mergeProperties(properties).buildSessionFactory();
+        sessionFactory=new Configuration().addAnnotatedClass(Student.class).addAnnotatedClass(Room.class).addAnnotatedClass(Reservation.class).addAnnotatedClass(User.class).addAnnotatedClass(Price.class).addAnnotatedClass(University.class).mergeProperties(properties).buildSessionFactory();
     }
 
     public static FactoryConfiguration getInstance(){

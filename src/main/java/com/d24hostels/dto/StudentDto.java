@@ -1,12 +1,12 @@
 package com.d24hostels.dto;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +18,25 @@ public class StudentDto{
     private String nic;
     private String gender;
     private String guardian;
-    private String campus;
-    private Date regDate;
-    private boolean keyMoney;
+    private String contact;
+    private String email;
+    private LocalDate regDate;
+    private UniversityDto universityDto;
+    private List<ReservationDto> reservationDtos;
+
+    public StudentDto(String sid) {
+        this.sid = sid;
+    }
+
+    public StudentDto(String sid, String name, String nic, String gender, String guardian, String contact, String email, LocalDate regDate, UniversityDto universityDto) {
+        this.sid = sid;
+        this.name = name;
+        this.nic = nic;
+        this.gender = gender;
+        this.guardian = guardian;
+        this.contact = contact;
+        this.email = email;
+        this.regDate = regDate;
+        this.universityDto = universityDto;
+    }
 }

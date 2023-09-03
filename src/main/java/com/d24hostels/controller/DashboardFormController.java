@@ -61,7 +61,7 @@ public class DashboardFormController implements Initializable {
     public void btnPaymentsOnAction(ActionEvent actionEvent) throws IOException {
         lblTitle.setText("Payments");
         context.getChildren().clear();
-        context.getChildren().add(FXMLLoader.load(getClass().getResource("/view/PaymentForm.fxml")));
+        context.getChildren().add(FXMLLoader.load(getClass().getResource("/view/ReservationForm.fxml")));
     }
 
     public void btnAccessoriesOnAction(ActionEvent actionEvent) throws IOException {

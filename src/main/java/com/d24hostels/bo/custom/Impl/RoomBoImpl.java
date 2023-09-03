@@ -93,4 +93,15 @@ public class RoomBoImpl implements RoomBo {
         Room search = roomDao.search(roomNo);
         return new RoomDto(search.getRoomNo(), new PriceDto(search.getPrice().getTypeId(),search.getPrice().getRoomType(),search.getPrice().getKeyMoney()));
     }
+
+    @Override
+    public int getCount(String status) throws Exception {
+        if (status.equals("Available")) {
+            List<Room> availableRooms = roomDao.getAvailableRooms();
+            return availableRooms.size();
+        }else{
+            List<Room> filledRooms = roomDao.getFilledRooms();
+            return filledRooms.size();
+        }
+    }
 }

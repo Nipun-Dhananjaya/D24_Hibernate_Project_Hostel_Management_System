@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 @AllArgsConstructor
@@ -21,13 +21,23 @@ public class Student {
     private String nic;
     private String gender;
     private String guardian;
-    private String campus;
-    private Date regDate;
-    private boolean keyMoney;
-    @OneToOne
-    private Room room;
-    @OneToMany(mappedBy = "student")
-    private List<Payment> payments;
-    @OneToOne
+    private String contact;
+    private String email;
+    private LocalDate regDate;
+    @OneToOne(cascade = CascadeType.MERGE)
     private University university;
+    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Reservation> reservations;
+
+    public Student(String sid, String name, String nic, String gender, String guardian, String contact, String email, LocalDate regDate, University university) {
+        this.sid = sid;
+        this.name = name;
+        this.nic = nic;
+        this.gender = gender;
+        this.guardian = guardian;
+        this.contact = contact;
+        this.email = email;
+        this.regDate = regDate;
+        this.university = university;
+    }
 }
