@@ -5,6 +5,7 @@ import com.d24hostels.bo.custom.*;
 import com.d24hostels.dto.*;
 import com.d24hostels.dto.tm.RoomTM;
 import com.d24hostels.dto.tm.StudentTM;
+import com.d24hostels.util.RegExPatterns;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
@@ -131,9 +132,6 @@ public class StudentFormController implements Initializable {
     public void txtSNameOnAction(ActionEvent actionEvent) {
     }
 
-    public void txtAmountOnAction(ActionEvent actionEvent) {
-    }
-
     public void txtEmailOnAction(ActionEvent actionEvent) {
     }
 
@@ -165,10 +163,14 @@ public class StudentFormController implements Initializable {
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
         try {
-            studentBo.updateStudent(new StudentDto(txtSid.getText(),txtSName.getText(),txtSNic.getText(),
-                    rBtnMale.isSelected()? "Male":"Female",txtGuardianName.getText(),txtContact.getText(),txtEmail.getText(), LocalDate.now(),
-                    new UniversityDto(String.valueOf(cmbUniversity.getSelectionModel().getSelectedItem()))));
-            new Alert(Alert.AlertType.INFORMATION, "Student Updated Successfully!").showAndWait();
+            if (isCorrectPattern()){
+                studentBo.updateStudent(new StudentDto(txtSid.getText(),txtSName.getText(),txtSNic.getText(),
+                        rBtnMale.isSelected()? "Male":"Female",txtGuardianName.getText(),txtContact.getText(),txtEmail.getText(), LocalDate.now(),
+                        new UniversityDto(String.valueOf(cmbUniversity.getSelectionModel().getSelectedItem()))));
+                new Alert(Alert.AlertType.INFORMATION, "Student Updated Successfully!").showAndWait();
+            }else{
+                new Alert(Alert.AlertType.INFORMATION, "Recheck provide details!").showAndWait();
+            }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
             e.printStackTrace();
@@ -177,11 +179,15 @@ public class StudentFormController implements Initializable {
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
         try {
-            studentBo.saveStudent(new StudentDto(txtSid.getText(),txtSName.getText(),txtSNic.getText(),
-                    rBtnMale.isSelected()? "Male":"Female",txtGuardianName.getText(),txtContact.getText(),txtEmail.getText(), LocalDate.now(),
-                    new UniversityDto(String.valueOf(cmbUniversity.getSelectionModel().getSelectedItem()))));
-            new Alert(Alert.AlertType.INFORMATION, "Student Saved Successfully!").showAndWait();
-            resetPage();
+            if (isCorrectPattern()){
+                studentBo.saveStudent(new StudentDto(txtSid.getText(),txtSName.getText(),txtSNic.getText(),
+                        rBtnMale.isSelected()? "Male":"Female",txtGuardianName.getText(),txtContact.getText(),txtEmail.getText(), LocalDate.now(),
+                        new UniversityDto(String.valueOf(cmbUniversity.getSelectionModel().getSelectedItem()))));
+                new Alert(Alert.AlertType.INFORMATION, "Student Saved Successfully!").showAndWait();
+                resetPage();
+            }else{
+                new Alert(Alert.AlertType.INFORMATION, "Recheck provide details!").showAndWait();
+            }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
             e.printStackTrace();
@@ -198,5 +204,17 @@ public class StudentFormController implements Initializable {
         rBtnFeMale.setSelected(false);
         getAllStudents();
         setCellValueFactory();
+    }
+
+    private boolean isCorrectPattern(){
+        if ((RegExPatterns.getEmailPattern().matcher(txtEmail.getText()).matches()) &&
+                RegExPatterns.getNamePattern().matcher(txtSName.getText()).matches() &&
+                RegExPatterns.getMobilePattern().matcher(txtContact.getText()).matches() &&
+                (RegExPatterns.getIdPattern().matcher(txtSNic.getText()).matches() ||
+                        RegExPatterns.getOldIDPattern().matcher(txtSNic.getText()).matches() ) &&
+                RegExPatterns.getNamePattern().matcher(txtGuardianName.getText()).matches()){
+            return true;
+        }
+        return false;
     }
 }

@@ -8,6 +8,7 @@ import com.d24hostels.bo.custom.StudentBo;
 import com.d24hostels.dto.*;
 import com.d24hostels.dto.tm.ReservationTM;
 import com.d24hostels.dto.tm.StudentTM;
+import com.d24hostels.util.RegExPatterns;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
@@ -185,20 +186,24 @@ public class ReservationFormController implements Initializable {
 
     public void btnSaveOnAction(ActionEvent actionEvent) {
         try {
-            StudentDto studentDto = studentBo.searchStudents(String.valueOf(cmbSId.getSelectionModel().getSelectedItem()));
-            RoomDto roomDto = roomBo.searchRoom(String.valueOf(cmbSelectedRoom.getSelectionModel().getSelectedItem()));
-            roomDto.setAvailability("Filled");
-            roomBo.updateRoom(roomDto);
-            reservationBo.saveReservation(new ReservationDto(
-                    0,
-                    LocalDate.now(),
-                    Double.parseDouble(txtAmount.getText()),
-                    rBtnPaid.isSelected()?true:false,
-                    roomDto,
-                    studentDto
-            ));
-            new Alert(Alert.AlertType.INFORMATION, "Reservation Saved Successfully!").showAndWait();
-            resetPage();
+            if (isCorrectPattern()){
+                StudentDto studentDto = studentBo.searchStudents(String.valueOf(cmbSId.getSelectionModel().getSelectedItem()));
+                RoomDto roomDto = roomBo.searchRoom(String.valueOf(cmbSelectedRoom.getSelectionModel().getSelectedItem()));
+                roomDto.setAvailability("Filled");
+                roomBo.updateRoom(roomDto);
+                reservationBo.saveReservation(new ReservationDto(
+                        0,
+                        LocalDate.now(),
+                        Double.parseDouble(txtAmount.getText()),
+                        rBtnPaid.isSelected()?true:false,
+                        roomDto,
+                        studentDto
+                ));
+                new Alert(Alert.AlertType.INFORMATION, "Reservation Saved Successfully!").showAndWait();
+                resetPage();
+            }else{
+                new Alert(Alert.AlertType.INFORMATION, "Recheck provide details!").showAndWait();
+            }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
             e.printStackTrace();
@@ -207,20 +212,24 @@ public class ReservationFormController implements Initializable {
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
         try {
-            StudentDto studentDto = studentBo.searchStudents(String.valueOf(cmbSId.getSelectionModel().getSelectedItem()));
-            RoomDto roomDto = roomBo.searchRoom(String.valueOf(cmbSelectedRoom.getSelectionModel().getSelectedItem()));
-            roomDto.setAvailability("Filled");
-            roomBo.updateRoom(roomDto);
-            reservationBo.updateReservation(new ReservationDto(
-                    0,
-                    LocalDate.now(),
-                    Double.parseDouble(txtAmount.getText()),
-                    rBtnPaid.isSelected()?true:false,
-                    roomDto,
-                    studentDto
-            ));
-            new Alert(Alert.AlertType.INFORMATION, "Reservation Update Successfully!").showAndWait();
-            resetPage();
+            if (isCorrectPattern()){
+                StudentDto studentDto = studentBo.searchStudents(String.valueOf(cmbSId.getSelectionModel().getSelectedItem()));
+                RoomDto roomDto = roomBo.searchRoom(String.valueOf(cmbSelectedRoom.getSelectionModel().getSelectedItem()));
+                roomDto.setAvailability("Filled");
+                roomBo.updateRoom(roomDto);
+                reservationBo.updateReservation(new ReservationDto(
+                        0,
+                        LocalDate.now(),
+                        Double.parseDouble(txtAmount.getText()),
+                        rBtnPaid.isSelected()?true:false,
+                        roomDto,
+                        studentDto
+                ));
+                new Alert(Alert.AlertType.INFORMATION, "Reservation Update Successfully!").showAndWait();
+                resetPage();
+            }else{
+                new Alert(Alert.AlertType.INFORMATION, "Recheck provide details!").showAndWait();
+            }
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
             e.printStackTrace();
@@ -229,7 +238,6 @@ public class ReservationFormController implements Initializable {
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
         try {
-            StudentDto studentDto = studentBo.searchStudents(String.valueOf(cmbSId.getSelectionModel().getSelectedItem()));
             RoomDto roomDto = roomBo.searchRoom(String.valueOf(cmbSelectedRoom.getSelectionModel().getSelectedItem()));
             roomDto.setAvailability("Available");
             roomBo.updateRoom(roomDto);
@@ -249,5 +257,11 @@ public class ReservationFormController implements Initializable {
         txtAmount.clear();
         getAllReservations();
         setCellValueFactory();
+    }
+    private boolean isCorrectPattern(){
+        if ((RegExPatterns.getDoublePattern().matcher(txtAmount.getText()).matches())){
+            return true;
+        }
+        return false;
     }
 }

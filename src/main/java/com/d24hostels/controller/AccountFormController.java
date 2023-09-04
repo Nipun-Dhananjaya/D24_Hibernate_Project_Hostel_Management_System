@@ -78,16 +78,21 @@ public class AccountFormController implements Initializable {
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {
         try {
-            UserDto userDto = userBo.searchUser(txtOldUserName.getText());
-            if (userDto.getPassword().equals(txtOldPwd.getText())){
-                userDto.setUsername(txtNewUserName.getText());
-                userDto.setPassword(txtNewPwd.getText());
-                userBo.updateUser(userDto);
-                new Alert(Alert.AlertType.INFORMATION, "Update Successfully!").showAndWait();
-                resetPage();
+            if (txtNewPwd.getText().equals(txtComNewPwd.getText())){
+                UserDto userDto = userBo.searchUser(txtOldUserName.getText());
+                if (userDto.getPassword().equals(txtOldPwd.getText())){
+                    userDto.setUsername(txtNewUserName.getText());
+                    userDto.setPassword(txtNewPwd.getText());
+                    userBo.updateUser(userDto);
+                    new Alert(Alert.AlertType.INFORMATION, "Update Successfully!").showAndWait();
+                    resetPage();
+                }else{
+                    new Alert(Alert.AlertType.INFORMATION, "Password is incorrect!").showAndWait();
+                }
             }else{
-                new Alert(Alert.AlertType.INFORMATION, "Password is incorrect!").showAndWait();
+                new Alert(Alert.AlertType.INFORMATION, "Doesn't match Confirmation and new password!").showAndWait();
             }
+
         } catch (Exception e) {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
             e.printStackTrace();
