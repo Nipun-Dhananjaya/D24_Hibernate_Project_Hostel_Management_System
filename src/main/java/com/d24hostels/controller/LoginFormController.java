@@ -41,7 +41,7 @@ public class LoginFormController implements Initializable {
     public void btnLoginOnAction(ActionEvent actionEvent) {
         try {
             UserDto userDto = userBo.searchUser(txtUserName.getText());
-            if (userDto.getPassword().equals(txtPassword.getText())){
+            if (userDto.getPassword().equals(pwdFld.getText())){
                 new Alert(Alert.AlertType.INFORMATION, "Login Successfully!").showAndWait();
                 resetPage();
             }else{
@@ -56,6 +56,7 @@ public class LoginFormController implements Initializable {
     private void resetPage() {
         txtUserName.clear();
         txtPassword.clear();
+        pwdFld.clear();
     }
 
     public void btnSignupOnAction(ActionEvent actionEvent) throws IOException {

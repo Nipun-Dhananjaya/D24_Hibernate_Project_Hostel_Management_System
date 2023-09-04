@@ -45,6 +45,7 @@ public class SignupFormController {
     private void resetPage() {
         txtUserName.clear();
         txtPassword.clear();
+        pwdFld.clear();
     }
 
     public void btnAlreadyHaveAnAccountOnAction(ActionEvent actionEvent) throws IOException {

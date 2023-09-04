@@ -28,7 +28,13 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public void update(User entity) throws Exception {
+        Session session= FactoryConfiguration.getInstance().getSession();
+        Transaction transaction=session.beginTransaction();
 
+        session.update(entity);
+
+        transaction.commit();
+        session.close();
     }
 
     @Override
@@ -38,6 +44,13 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User search(String s) throws Exception {
-        return null;
+        Session session= FactoryConfiguration.getInstance().getSession();
+        Transaction transaction=session.beginTransaction();
+
+        User user = session.get(User.class, s);
+
+        transaction.commit();
+        session.close();
+        return user;
     }
 }

@@ -15,7 +15,7 @@ public class UserBoImpl implements UserBo {
 
     @Override
     public void updateUser(UserDto userDto) throws Exception {
-
+        userDao.update(new User(userDto.getUsername(), userDto.getPassword()));
     }
 
     @Override
@@ -30,6 +30,8 @@ public class UserBoImpl implements UserBo {
 
     @Override
     public UserDto searchUser(String username) throws Exception {
-        return null;
+        User search = userDao.search(username);
+        UserDto userDto = new UserDto(search.getUsername(),search.getPassword());
+        return userDto;
     }
 }
