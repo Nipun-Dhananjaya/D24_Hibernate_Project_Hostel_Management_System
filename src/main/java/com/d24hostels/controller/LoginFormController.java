@@ -3,11 +3,13 @@ package com.d24hostels.controller;
 import com.d24hostels.bo.BOFactory;
 import com.d24hostels.bo.custom.UserBo;
 import com.d24hostels.dto.UserDto;
+import com.jfoenix.controls.JFXCheckBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -21,6 +23,8 @@ public class LoginFormController implements Initializable {
     public TextField txtPassword;
     public Button btnLogin;
     public Button btnSignup;
+    public JFXCheckBox checkBxShowPwd;
+    public PasswordField pwdFld;
     UserBo userBo= (UserBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
 
     @Override
@@ -37,7 +41,7 @@ public class LoginFormController implements Initializable {
     public void btnLoginOnAction(ActionEvent actionEvent) {
         try {
             UserDto userDto = userBo.searchUser(txtUserName.getText());
-            if (userDto.getPassword().equals(txtPassword)){
+            if (userDto.getPassword().equals(txtPassword.getText())){
                 new Alert(Alert.AlertType.INFORMATION, "Login Successfully!").showAndWait();
                 resetPage();
             }else{
@@ -57,5 +61,19 @@ public class LoginFormController implements Initializable {
     public void btnSignupOnAction(ActionEvent actionEvent) throws IOException {
         root.getChildren().clear();
         root.getChildren().add(FXMLLoader.load(getClass().getResource("/view/SignupForm.fxml")));
+    }
+
+    public void checkBxShowPwdOnAction(ActionEvent actionEvent) {
+        if (checkBxShowPwd.isSelected()){
+            String pwd=pwdFld.getText();
+            pwdFld.setVisible(false);
+            txtPassword.setVisible(true);
+            txtPassword.setText(pwd);
+        }else{
+            String pwd=txtPassword.getText();
+            pwdFld.setVisible(true);
+            txtPassword.setVisible(false);
+            pwdFld.setText(pwd);
+        }
     }
 }

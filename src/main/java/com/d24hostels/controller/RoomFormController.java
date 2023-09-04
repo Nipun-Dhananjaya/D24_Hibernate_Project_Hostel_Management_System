@@ -191,7 +191,8 @@ public class RoomFormController implements Initializable {
         txtKeyMoney.clear();
         txtRoomType.setDisable(false);
         txtKeyMoney.setDisable(false);
-        tblRoom.refresh();
+        getAvailableRooms();
+        setCellValueFactory();
     }
 
     public void btnUpdateOnAction(ActionEvent actionEvent) {

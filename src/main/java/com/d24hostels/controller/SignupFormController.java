@@ -3,10 +3,12 @@ package com.d24hostels.controller;
 import com.d24hostels.bo.BOFactory;
 import com.d24hostels.bo.custom.UserBo;
 import com.d24hostels.dto.*;
+import com.jfoenix.controls.JFXCheckBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
@@ -19,6 +21,8 @@ public class SignupFormController {
     public TextField txtPassword;
     public Button btnCreateAccount;
     public Button btnAlreadyHaveAnAccount;
+    public JFXCheckBox checkBxShowPwd;
+    public PasswordField pwdFld;
     UserBo userBo= (UserBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
 
     public void txtUserNameOnAction(ActionEvent actionEvent) {
@@ -46,5 +50,19 @@ public class SignupFormController {
     public void btnAlreadyHaveAnAccountOnAction(ActionEvent actionEvent) throws IOException {
         root.getChildren().clear();
         root.getChildren().add(FXMLLoader.load(getClass().getResource("/view/LoginForm.fxml")));
+    }
+
+    public void checkBxShowPwdOnAction(ActionEvent actionEvent) {
+        if (checkBxShowPwd.isSelected()){
+            String pwd=pwdFld.getText();
+            pwdFld.setVisible(false);
+            txtPassword.setVisible(true);
+            txtPassword.setText(pwd);
+        }else{
+            String pwd=txtPassword.getText();
+            pwdFld.setVisible(true);
+            txtPassword.setVisible(false);
+            pwdFld.setText(pwd);
+        }
     }
 }

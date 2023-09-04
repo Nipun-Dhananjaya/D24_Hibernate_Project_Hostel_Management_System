@@ -2,7 +2,6 @@ package com.d24hostels.bo.custom;
 
 import com.d24hostels.bo.SuperBo;
 import com.d24hostels.dto.ReservationDto;
-import com.d24hostels.dto.ReservationTmDto;
 
 import java.util.List;
 

@@ -59,7 +59,7 @@ public class DashboardFormController implements Initializable {
     }
 
     public void btnPaymentsOnAction(ActionEvent actionEvent) throws IOException {
-        lblTitle.setText("Payments");
+        lblTitle.setText("Reservations");
         context.getChildren().clear();
         context.getChildren().add(FXMLLoader.load(getClass().getResource("/view/ReservationForm.fxml")));
     }

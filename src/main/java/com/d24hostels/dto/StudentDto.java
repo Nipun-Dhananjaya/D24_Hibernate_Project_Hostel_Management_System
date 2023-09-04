@@ -24,8 +24,9 @@ public class StudentDto{
     private UniversityDto universityDto;
     private List<ReservationDto> reservationDtos;
 
-    public StudentDto(String sid) {
+    public StudentDto(String sid, String name) {
         this.sid = sid;
+        this.name = name;
     }
 
     public StudentDto(String sid, String name, String nic, String gender, String guardian, String contact, String email, LocalDate regDate, UniversityDto universityDto) {

@@ -24,8 +24,6 @@ public class AccountFormController implements Initializable {
     public AnchorPane context;
     public Button btnUpdate;
     public JFXTextField txtOldUserName;
-    public Button btnSave;
-    public Button btnDelete;
     public JFXTextField txtOldPwd;
     public JFXTextField txtNewPwd;
     public JFXPasswordField pwdFldNewPwd;
@@ -33,18 +31,59 @@ public class AccountFormController implements Initializable {
     public JFXPasswordField pwdFldComPwd;
     public JFXTextField txtNewUserName;
     public JFXCheckBox checkBxShowPwd;
+    public JFXPasswordField pwdFldOldPwd;
     UserBo userBo= (UserBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.USER);
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
     }
 
-    public void btnSaveOnAction(ActionEvent actionEvent) {
+    private void resetPage() {
+        txtOldUserName.clear();
+        txtNewUserName.clear();
+        txtOldPwd.clear();
+        txtNewPwd.clear();
+        txtComNewPwd.clear();
+    }
+
+    public void checkBxShowPwdOnAction(ActionEvent actionEvent) {
+        if (checkBxShowPwd.isSelected()){
+            String old=pwdFldOldPwd.getText();
+            pwdFldOldPwd.setVisible(false);
+            txtOldPwd.setVisible(true);
+            txtOldPwd.setText(old);
+            String newPwd=pwdFldNewPwd.getText();
+            pwdFldNewPwd.setVisible(false);
+            txtNewPwd.setVisible(true);
+            txtNewPwd.setText(newPwd);
+            String com=pwdFldComPwd.getText();
+            pwdFldComPwd.setVisible(false);
+            txtComNewPwd.setVisible(true);
+            txtComNewPwd.setText(com);
+        }else{
+            String old=txtOldPwd.getText();
+            pwdFldOldPwd.setVisible(true);
+            txtOldPwd.setVisible(false);
+            pwdFldOldPwd.setText(old);
+            String newPwd=txtNewPwd.getText();
+            pwdFldNewPwd.setVisible(true);
+            txtNewPwd.setVisible(false);
+            pwdFldNewPwd.setText(newPwd);
+            String com=txtComNewPwd.getText();
+            pwdFldComPwd.setVisible(true);
+            txtComNewPwd.setVisible(false);
+            pwdFldComPwd.setText(com);
+        }
+    }
+
+    public void btnUpdateOnAction(ActionEvent actionEvent) {
         try {
-            UserDto userDto = userBo.searchUser(txtUserName.getText());
-            if (userDto.getPassword().equals(txtPassword)){
-                new Alert(Alert.AlertType.INFORMATION, "Login Successfully!").showAndWait();
+            UserDto userDto = userBo.searchUser(txtOldUserName.getText());
+            if (userDto.getPassword().equals(txtOldPwd.getText())){
+                userDto.setUsername(txtNewUserName.getText());
+                userDto.setPassword(txtNewPwd.getText());
+                userBo.updateUser(userDto);
+                new Alert(Alert.AlertType.INFORMATION, "Update Successfully!").showAndWait();
                 resetPage();
             }else{
                 new Alert(Alert.AlertType.INFORMATION, "Password is incorrect!").showAndWait();
@@ -53,14 +92,5 @@ public class AccountFormController implements Initializable {
             new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
             e.printStackTrace();
         }
-    }
-
-    public void btnDeleteOnAction(ActionEvent actionEvent) {
-    }
-
-    public void checkBxShowPwdOnAction(ActionEvent actionEvent) {
-    }
-
-    public void btnUpdateOnAction(ActionEvent actionEvent) {
     }
 }

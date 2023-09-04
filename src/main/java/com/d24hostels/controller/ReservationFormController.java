@@ -19,13 +19,14 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class ReservationFormController implements Initializable {
     public JFXComboBox cmbSId;
-    public TableView tblPayment;
+    public TableView<ReservationTM> tblPayment;
     public TableColumn colPayId;
     public TableColumn colStudentId;
     public TableColumn colStudentName;
@@ -49,6 +50,7 @@ public class ReservationFormController implements Initializable {
     StudentBo studentBo= (StudentBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.STUDENT);
     ObservableList<ReservationTM> observableList= FXCollections.observableArrayList();
     ObservableList<String> obList= FXCollections.observableArrayList();
+    String payId="";
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -56,6 +58,26 @@ public class ReservationFormController implements Initializable {
         getAllRoomTypes();
         getAllReservations();
         setCellValueFactory();
+
+        tblPayment.getSelectionModel().selectedItemProperty()
+                .addListener((observableValue, oldValue, newValue) -> {
+                    if(newValue!=null){
+                        setData(newValue);
+                    }
+                });
+    }
+
+    private void setData(ReservationTM newValue) {
+        payId= newValue.getPayId();
+        cmbSId.setValue(newValue.getStId());
+        cmbRoomType.setValue(newValue.getRoomType());
+        cmbSelectedRoom.setValue(newValue.getRoomNo());
+        if (newValue.getKeyMoneyCompleted().equals("Completed")){
+            rBtnPaid.setSelected(true);
+        }else{
+            rBtnNotPaid.setSelected(true);
+        }
+        txtAmount.setText(newValue.getPayAmount());
     }
 
     private void getAllStudents() {
@@ -104,27 +126,27 @@ public class ReservationFormController implements Initializable {
 
     private void getAllReservations() {
         try {
-            /*observableList.clear();
+            observableList.clear();
             List<ReservationDto> allReservations = reservationBo.getAllReservations();
-            if (reservationTmDtos!=null){
-                for (ReservationTmDto reservationDto : reservationTmDtos) {
+            if (allReservations!=null){
+                for (ReservationDto reservationDto : allReservations) {
                     observableList.add(
                             new ReservationTM(
-                                    reservationDto.getPayId(),
-                                    reservationDto.getStId(),
-                                    reservationDto.getStName(),
-                                    reservationDto.getPayDateTime(),
-                                    reservationDto.getPayAmount(),
-                                    reservationDto.getRoomNo(),
-                                    reservationDto.getRoomType(),
-                                    reservationDto.getKeyMoneyCompleted()
+                                    String.valueOf(reservationDto.getPayId()),
+                                    reservationDto.getStudentDto().getSid(),
+                                    reservationDto.getStudentDto().getName(),
+                                    String.valueOf(reservationDto.getPaidDate()),
+                                    String.valueOf(reservationDto.getAmount()),
+                                    reservationDto.getRoomDto().getRoomNo(),
+                                    reservationDto.getRoomDto().getPriceDto().getRoomType(),
+                                    reservationDto.isStatus()?"Complete":"Not yet"
                             )
                     );
                 }
                 tblPayment.setItems(observableList);
             }else{
                 new Alert(Alert.AlertType.INFORMATION, "Payments not found!").showAndWait();
-            }*/
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -166,10 +188,12 @@ public class ReservationFormController implements Initializable {
             StudentDto studentDto = studentBo.searchStudents(String.valueOf(cmbSId.getSelectionModel().getSelectedItem()));
             RoomDto roomDto = roomBo.searchRoom(String.valueOf(cmbSelectedRoom.getSelectionModel().getSelectedItem()));
             roomDto.setAvailability("Filled");
+            roomBo.updateRoom(roomDto);
             reservationBo.saveReservation(new ReservationDto(
                     0,
                     LocalDate.now(),
                     Double.parseDouble(txtAmount.getText()),
+                    rBtnPaid.isSelected()?true:false,
                     roomDto,
                     studentDto
             ));
@@ -186,10 +210,12 @@ public class ReservationFormController implements Initializable {
             StudentDto studentDto = studentBo.searchStudents(String.valueOf(cmbSId.getSelectionModel().getSelectedItem()));
             RoomDto roomDto = roomBo.searchRoom(String.valueOf(cmbSelectedRoom.getSelectionModel().getSelectedItem()));
             roomDto.setAvailability("Filled");
+            roomBo.updateRoom(roomDto);
             reservationBo.updateReservation(new ReservationDto(
                     0,
                     LocalDate.now(),
                     Double.parseDouble(txtAmount.getText()),
+                    rBtnPaid.isSelected()?true:false,
                     roomDto,
                     studentDto
             ));
@@ -202,6 +228,18 @@ public class ReservationFormController implements Initializable {
     }
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
+        try {
+            StudentDto studentDto = studentBo.searchStudents(String.valueOf(cmbSId.getSelectionModel().getSelectedItem()));
+            RoomDto roomDto = roomBo.searchRoom(String.valueOf(cmbSelectedRoom.getSelectionModel().getSelectedItem()));
+            roomDto.setAvailability("Available");
+            roomBo.updateRoom(roomDto);
+            reservationBo.deleteReservation(payId);
+            new Alert(Alert.AlertType.INFORMATION, "Reservation Deleted Successfully!").showAndWait();
+            resetPage();
+        } catch (Exception e) {
+            new Alert(Alert.AlertType.ERROR, e.getMessage()).showAndWait();
+            e.printStackTrace();
+        }
     }
 
     private void resetPage() {

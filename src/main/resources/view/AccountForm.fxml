@@ -18,7 +18,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </JFXTextField>
-      <Button fx:id="btnSave" layoutX="1027.0" layoutY="656.0" mnemonicParsing="false" onAction="#btnSaveOnAction" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #4b7bec;" text="Save" textFill="WHITE">
+      <Button fx:id="btnUpdate" layoutX="816.0" layoutY="556.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #20bf6b;" text="Update" textFill="WHITE">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -26,23 +26,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="btnUpdate" layoutX="1116.0" layoutY="656.0" mnemonicParsing="false" onAction="#btnUpdateOnAction" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #20bf6b;" text="Update" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button fx:id="btnDelete" layoutX="1204.0" layoutY="656.0" mnemonicParsing="false" onAction="#btnDeleteOnAction" prefHeight="26.0" prefWidth="80.0" style="-fx-background-color: #eb3b5a;" text="Delete" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="13.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <JFXTextField fx:id="txtOldPwd" focusColor="#efdea5" labelFloat="true" layoutX="480.0" layoutY="260.0" prefHeight="43.0" prefWidth="337.0" promptText="Type old password here..." unFocusColor="WHITE">
+      <JFXTextField fx:id="txtOldPwd" focusColor="#efdea5" labelFloat="true" layoutX="480.0" layoutY="260.0" prefHeight="43.0" prefWidth="337.0" promptText="Type old password here..." unFocusColor="WHITE" visible="false">
          <font>
             <Font name="Bookshelf Symbol 7" size="19.0" />
          </font>
@@ -91,5 +75,13 @@
          </cursor>
       </JFXTextField>
       <JFXCheckBox fx:id="checkBxShowPwd" checkedColor="#28109c" layoutX="708.0" layoutY="520.0" onAction="#checkBxShowPwdOnAction" text="Show Password" textFill="WHITE" unCheckedColor="WHITE" />
+      <JFXPasswordField fx:id="pwdFldOldPwd" focusColor="#efdea5" labelFloat="true" layoutX="480.0" layoutY="260.0" prefHeight="43.0" prefWidth="338.0" promptText="Type old password here..." unFocusColor="WHITE">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="19.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </JFXPasswordField>
    </children>
 </AnchorPane>
