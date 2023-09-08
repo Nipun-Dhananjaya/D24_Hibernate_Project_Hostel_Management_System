@@ -42,7 +42,7 @@ public class HomeFormController implements Initializable {
             for (RoomDto available:availableRooms) {
                 if (available.getPriceDto().getRoomType().equals("Non-AC")){
                     emptyNoneAC+=1;
-                }else if (available.getPriceDto().getRoomType().equals("Non-AC/Food")){
+                }else if (available.getPriceDto().getRoomType().equals("Non-AC / Food")){
                     emptyNoneACFood+=1;
                 }else if (available.getPriceDto().getRoomType().equals("AC")){
                     emptyAC+=1;

@@ -7,11 +7,13 @@ import com.jfoenix.controls.JFXCheckBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -42,8 +44,15 @@ public class LoginFormController implements Initializable {
         try {
             UserDto userDto = userBo.searchUser(txtUserName.getText());
             if (userDto.getPassword().equals(pwdFld.getText())){
-                new Alert(Alert.AlertType.INFORMATION, "Login Successfully!").showAndWait();
+                new Alert(Alert.AlertType.INFORMATION, "Login Successfully!");
                 resetPage();
+
+                AnchorPane anchorPane = FXMLLoader.load(getClass().getResource("/view/DashboardForm.fxml"));
+                Stage stage = (Stage) root.getScene().getWindow();
+                stage.setScene(new Scene(anchorPane));
+                stage.setTitle("Dashboard");
+                stage.centerOnScreen();
+                stage.setMaximized(true);
             }else{
                 new Alert(Alert.AlertType.INFORMATION, "Password is incorrect!").showAndWait();
             }

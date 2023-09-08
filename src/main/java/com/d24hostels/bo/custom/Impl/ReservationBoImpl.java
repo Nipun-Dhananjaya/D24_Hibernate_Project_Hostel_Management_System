@@ -13,6 +13,7 @@ public class ReservationBoImpl implements ReservationBo {
     ReservationDao reservationDao= (ReservationDao) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.RESERVATION);
     @Override
     public void saveReservation(ReservationDto paymentDto) throws Exception {
+        System.out.println("bor: "+paymentDto.getRoomDto().getAvailability());
         reservationDao.save(new Reservation(
                 paymentDto.getPaidDate(),
                 paymentDto.getAmount(),
@@ -43,6 +44,7 @@ public class ReservationBoImpl implements ReservationBo {
     @Override
     public void updateReservation(ReservationDto paymentDto) throws Exception {
         reservationDao.update(new Reservation(
+                paymentDto.getPayId(),
                 paymentDto.getPaidDate(),
                 paymentDto.getAmount(),
                 paymentDto.isStatus(),

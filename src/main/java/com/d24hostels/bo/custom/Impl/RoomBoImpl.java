@@ -15,12 +15,17 @@ public class RoomBoImpl implements RoomBo {
     RoomDao roomDao= (RoomDao) DAOFactory.getDaoFactory().getDAO(DAOFactory.DAOTypes.ROOMS);
     @Override
     public void saveRoom(RoomDto roomDto) throws Exception {
+        System.out.println("bo: "+roomDto.getAvailability());
         roomDao.save(new Room(roomDto.getRoomNo(),new Price(roomDto.getPriceDto().getTypeId(),roomDto.getPriceDto().getRoomType(),roomDto.getPriceDto().getPrice()), roomDto.getAvailability()));
     }
 
     @Override
     public void updateRoom(RoomDto roomDto) throws Exception {
-        roomDao.update(new Room(roomDto.getRoomNo(),new Price(roomDto.getPriceDto().getTypeId(),roomDto.getPriceDto().getRoomType(),roomDto.getPriceDto().getPrice())));
+        if (roomDto.getAvailability()==null){
+            roomDao.update(new Room(roomDto.getRoomNo(),new Price(roomDto.getPriceDto().getTypeId(),roomDto.getPriceDto().getRoomType(),roomDto.getPriceDto().getPrice())));
+        }else {
+            roomDao.update(new Room(roomDto.getRoomNo(), new Price(roomDto.getPriceDto().getTypeId(), roomDto.getPriceDto().getRoomType(), roomDto.getPriceDto().getPrice()), roomDto.getAvailability()));
+        }
     }
 
     @Override

@@ -45,6 +45,8 @@ public class ReservationFormController implements Initializable {
     public Button btnSave;
     public Button btnUpdate;
     public Button btnDelete;
+    public JFXTextField txtSelectedRoom;
+    public JFXTextField txtRoomType;
     ReservationBo reservationBo= (ReservationBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.RESERVATION);
     PriceBo priceBo= (PriceBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.PRICE);
     RoomBo roomBo= (RoomBo) BOFactory.getBoFactory().getBO(BOFactory.BOTypes.ROOMS);
@@ -69,11 +71,15 @@ public class ReservationFormController implements Initializable {
     }
 
     private void setData(ReservationTM newValue) {
+        txtSelectedRoom.setVisible(true);
+        cmbSelectedRoom.setVisible(false);
+        txtRoomType.setVisible(true);
+        cmbRoomType.setVisible(false);
         payId= newValue.getPayId();
         cmbSId.setValue(newValue.getStId());
-        cmbRoomType.setValue(newValue.getRoomType());
-        cmbSelectedRoom.setValue(newValue.getRoomNo());
-        if (newValue.getKeyMoneyCompleted().equals("Completed")){
+        txtRoomType.setText(newValue.getRoomType());
+        txtSelectedRoom.setText(newValue.getRoomNo());
+        if (newValue.getKeyMoneyCompleted().equals("Complete")){
             rBtnPaid.setSelected(true);
         }else{
             rBtnNotPaid.setSelected(true);
@@ -214,11 +220,9 @@ public class ReservationFormController implements Initializable {
         try {
             if (isCorrectPattern()){
                 StudentDto studentDto = studentBo.searchStudents(String.valueOf(cmbSId.getSelectionModel().getSelectedItem()));
-                RoomDto roomDto = roomBo.searchRoom(String.valueOf(cmbSelectedRoom.getSelectionModel().getSelectedItem()));
-                roomDto.setAvailability("Filled");
-                roomBo.updateRoom(roomDto);
+                RoomDto roomDto = roomBo.searchRoom(txtSelectedRoom.getText());
                 reservationBo.updateReservation(new ReservationDto(
-                        0,
+                        Integer.parseInt(payId),
                         LocalDate.now(),
                         Double.parseDouble(txtAmount.getText()),
                         rBtnPaid.isSelected()?true:false,
@@ -238,7 +242,7 @@ public class ReservationFormController implements Initializable {
 
     public void btnDeleteOnAction(ActionEvent actionEvent) {
         try {
-            RoomDto roomDto = roomBo.searchRoom(String.valueOf(cmbSelectedRoom.getSelectionModel().getSelectedItem()));
+            RoomDto roomDto = roomBo.searchRoom(txtSelectedRoom.getText());
             roomDto.setAvailability("Available");
             roomBo.updateRoom(roomDto);
             reservationBo.deleteReservation(payId);
@@ -257,6 +261,12 @@ public class ReservationFormController implements Initializable {
         txtAmount.clear();
         getAllReservations();
         setCellValueFactory();
+        txtSelectedRoom.setVisible(false);
+        txtSelectedRoom.clear();
+        cmbSelectedRoom.setVisible(true);
+        txtRoomType.setVisible(false);
+        txtRoomType.clear();
+        cmbRoomType.setVisible(true);
     }
     private boolean isCorrectPattern(){
         if ((RegExPatterns.getDoublePattern().matcher(txtAmount.getText()).matches())){

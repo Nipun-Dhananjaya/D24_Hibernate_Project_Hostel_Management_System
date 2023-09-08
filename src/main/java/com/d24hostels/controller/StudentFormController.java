@@ -168,6 +168,7 @@ public class StudentFormController implements Initializable {
                         rBtnMale.isSelected()? "Male":"Female",txtGuardianName.getText(),txtContact.getText(),txtEmail.getText(), LocalDate.now(),
                         new UniversityDto(String.valueOf(cmbUniversity.getSelectionModel().getSelectedItem()))));
                 new Alert(Alert.AlertType.INFORMATION, "Student Updated Successfully!").showAndWait();
+                resetPage();
             }else{
                 new Alert(Alert.AlertType.INFORMATION, "Recheck provide details!").showAndWait();
             }
@@ -195,6 +196,7 @@ public class StudentFormController implements Initializable {
     }
 
     private void resetPage() {
+        txtSid.clear();
         txtSName.clear();
         txtSNic.clear();
         txtGuardianName.clear();

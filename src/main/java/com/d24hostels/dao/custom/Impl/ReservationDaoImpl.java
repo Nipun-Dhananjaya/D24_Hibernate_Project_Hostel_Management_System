@@ -61,6 +61,7 @@ public class ReservationDaoImpl implements ReservationDao {
         Session session= FactoryConfiguration.getInstance().getSession();
         Transaction transaction=session.beginTransaction();
 
+        System.out.println("bor: "+entity.getRoom().getAvailability());
         session.persist(entity);
 
         transaction.commit();
@@ -84,6 +85,7 @@ public class ReservationDaoImpl implements ReservationDao {
         Transaction transaction=session.beginTransaction();
 
         Reservation reservation = session.get(Reservation.class, s);
+        session.detach(reservation);
         session.remove(reservation);
 
         transaction.commit();

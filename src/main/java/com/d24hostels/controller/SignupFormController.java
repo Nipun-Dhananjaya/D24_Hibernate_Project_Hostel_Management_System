@@ -33,7 +33,7 @@ public class SignupFormController {
 
     public void btnCreateAccountOnAction(ActionEvent actionEvent) {
         try {
-            userBo.saveUser(new UserDto(txtUserName.getText(),txtPassword.getText()));
+            userBo.saveUser(new UserDto(txtUserName.getText(),pwdFld.getText()));
             new Alert(Alert.AlertType.INFORMATION, "Create Account Successfully!").showAndWait();
             resetPage();
         } catch (Exception e) {

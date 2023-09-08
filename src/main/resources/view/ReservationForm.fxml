@@ -33,7 +33,7 @@
             <ToggleGroup fx:id="keymoney" />
          </toggleGroup>
       </JFXRadioButton>
-      <JFXRadioButton fx:id="rBtnNotPaid" layoutX="844.0" layoutY="53.0" text="Not Paid" toggleGroup="$keymoney" >
+      <JFXRadioButton fx:id="rBtnNotPaid" layoutX="844.0" layoutY="53.0" text="Not Paid" toggleGroup="$keymoney">
       </JFXRadioButton>
       <Label layoutX="676.0" layoutY="51.0" text="Keymoney :">
          <font>
@@ -60,5 +60,15 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
+      <JFXTextField fx:id="txtSelectedRoom" focusColor="#efdea5" labelFloat="true" layoutX="302.0" layoutY="238.0" prefHeight="43.0" prefWidth="263.0" promptText="Selected Room" unFocusColor="WHITE" visible="false">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="19.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="txtRoomType" focusColor="#efdea5" labelFloat="true" layoutX="302.0" layoutY="136.0" prefHeight="43.0" prefWidth="263.0" promptText="Room Type" unFocusColor="WHITE" visible="false">
+         <font>
+            <Font name="Bookshelf Symbol 7" size="19.0" />
+         </font>
+      </JFXTextField>
    </children>
 </AnchorPane>

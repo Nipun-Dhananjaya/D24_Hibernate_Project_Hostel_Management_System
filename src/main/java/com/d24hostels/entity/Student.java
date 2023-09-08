@@ -24,9 +24,9 @@ public class Student {
     private String contact;
     private String email;
     private LocalDate regDate;
-    @OneToOne(cascade = CascadeType.MERGE)
+    @ManyToOne(cascade = CascadeType.MERGE)
     private University university;
-    @OneToMany(mappedBy = "student",cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "student",cascade = {CascadeType.MERGE,CascadeType.PERSIST}, fetch = FetchType.EAGER)
     private List<Reservation> reservations;
 
     public Student(String sid, String name, String nic, String gender, String guardian, String contact, String email, LocalDate regDate, University university) {

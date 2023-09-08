@@ -46,6 +46,7 @@ public class RoomDaoImpl implements RoomDao {
         Session session= FactoryConfiguration.getInstance().getSession();
         Transaction transaction=session.beginTransaction();
 
+        System.out.println("dao: "+entity.getAvailability());
         session.persist(entity);
 
         transaction.commit();
